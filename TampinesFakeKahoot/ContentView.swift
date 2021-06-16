@@ -45,8 +45,12 @@ struct ContentView: View {
                     let question = questions[currentQuestion]
                     let answers = question.answers
                     
-                    VStack {
-                        ForEach(0..<2, id: \.self) { answerIndex in
+                    ForEach(0..<answers.count/2, id:\.self) { answersChunkedIndex in
+                        
+                        
+                        let answerIndex = answersChunkedIndex * 2
+                        
+                        VStack{
                             Button(action: {
                                 didTapOption(correct: answerIndex == question.correctIndex)
                             }, label: {
@@ -57,23 +61,22 @@ struct ContentView: View {
                             .frame(width: 170, height: 50)
                             .background(colors[answerIndex])
                             .clipShape(Rectangle())
-                        }
-                    }.padding()
-                    
-                    VStack {
-                        ForEach(2..<4, id: \.self) { answerIndex in
+
+                        
                             Button(action: {
-                                didTapOption(correct: answerIndex == question.correctIndex)
+                                didTapOption(correct: answerIndex+1 == question.correctIndex)
                             }, label: {
-                                Text(answers[answerIndex])
+                                Text(answers[answerIndex+1])
                                     .foregroundColor(Color.white)
                             })
                             .padding()
                             .frame(width: 170, height: 50)
-                            .background(colors[answerIndex])
+                            .background(colors[answerIndex+1])
                             .clipShape(Rectangle())
+                            }
                         }
-                    }.padding()
+                        
+                    }
                 }
             }
             .alert(isPresented: $isAlertPresented, content: {
@@ -97,21 +100,24 @@ struct ContentView: View {
                 }
             )
         }
-        
-        
-        
-    }
     
-    func didTapOption(correct: Bool) {
-        if correct {
-            isCorrect = true
-            correctAnswers += 1
-        } else {
-            isCorrect = false
+        func didTapOption(correct: Bool) {
+            if correct {
+                isCorrect = true
+                correctAnswers += 1
+            } else {
+                isCorrect = false
+            }
+            isAlertPresented = true
         }
-        isAlertPresented = true
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
