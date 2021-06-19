@@ -15,6 +15,10 @@ struct ScoreView: View {
     
     var body: some View {
         VStack {
+            CircularProgressView(progress: CGFloat(score) / CGFloat(totalQuestions))
+                .frame(width: 150, height: 150)
+                .padding()
+            
             Text("Scoree isss:")
                 .padding(0.1)
             Text("\(score)/\(totalQuestions)")

@@ -34,14 +34,14 @@ struct ContentView: View {
             
             VStack {
                 ProgressView(value: Double(currentQuestion),
-                                         total: Double(questions.count))
-                                .padding()
-                withAnimation {
-                    Text(questions[currentQuestion].title)
-                        .font(.system(size: 50))
-                        .bold()
-                        .padding()
-                }
+                             total: Double(questions.count))
+                    .padding(.all)
+                    
+                
+                Text(questions[currentQuestion].title)
+                    .font(.system(size: 50))
+                    .bold()
+                    .padding()
                 
                 HStack {
                     
