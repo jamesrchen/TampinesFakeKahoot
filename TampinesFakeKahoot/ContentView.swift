@@ -54,6 +54,7 @@ struct ContentView: View {
                             Button(action: {
                                 didTapOption(correct: answerIndex == question.correctIndex)
                             }, label: {
+                                Image(systemName: "square.and.pencil")
                                 Text(answers[answerIndex])
                                     .foregroundColor(Color.white)
                             })
@@ -66,6 +67,7 @@ struct ContentView: View {
                             Button(action: {
                                 didTapOption(correct: answerIndex+1 == question.correctIndex)
                             }, label: {
+                                Image(systemName: "square.and.pencil")
                                 Text(answers[answerIndex+1])
                                     .foregroundColor(Color.white)
                             })
