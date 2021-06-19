@@ -33,6 +33,9 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                ProgressView(value: Double(currentQuestion),
+                                         total: Double(questions.count))
+                                .padding()
                 withAnimation {
                     Text(questions[currentQuestion].title)
                         .font(.system(size: 50))
