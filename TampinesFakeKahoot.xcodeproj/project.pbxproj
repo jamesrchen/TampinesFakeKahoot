@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5318470267D93DA00A532B2 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531846F267D93DA00A532B2 /* Questions.swift */; };
 		F22E8182266B1A7C00113D9B /* TampinesFakeKahootApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8181266B1A7C00113D9B /* TampinesFakeKahootApp.swift */; };
 		F22E8184266B1A7C00113D9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8183266B1A7C00113D9B /* ContentView.swift */; };
 		F22E8186266B1A8000113D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22E8185266B1A8000113D9B /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C531846F267D93DA00A532B2 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		F22E817E266B1A7C00113D9B /* TampinesFakeKahoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TampinesFakeKahoot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22E8181266B1A7C00113D9B /* TampinesFakeKahootApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TampinesFakeKahootApp.swift; sourceTree = "<group>"; };
 		F22E8183266B1A7C00113D9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				F22E8181266B1A7C00113D9B /* TampinesFakeKahootApp.swift */,
 				F22E8183266B1A7C00113D9B /* ContentView.swift */,
+				C531846F267D93DA00A532B2 /* Questions.swift */,
 				F22E8185266B1A8000113D9B /* Assets.xcassets */,
 				F22E818A266B1A8000113D9B /* Info.plist */,
 				F22E8187266B1A8000113D9B /* Preview Content */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22E8184266B1A7C00113D9B /* ContentView.swift in Sources */,
+				C5318470267D93DA00A532B2 /* Questions.swift in Sources */,
 				F22E8182266B1A7C00113D9B /* TampinesFakeKahootApp.swift in Sources */,
 				F22E8195266B22E500113D9B /* ScoreView.swift in Sources */,
 			);
