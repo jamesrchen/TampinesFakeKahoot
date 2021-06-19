@@ -11,7 +11,6 @@
 		F22E8184266B1A7C00113D9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8183266B1A7C00113D9B /* ContentView.swift */; };
 		F22E8186266B1A8000113D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22E8185266B1A8000113D9B /* Assets.xcassets */; };
 		F22E8189266B1A8000113D9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22E8188266B1A8000113D9B /* Preview Assets.xcassets */; };
-		F22E8191266B1B4B00113D9B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8190266B1B4B00113D9B /* Question.swift */; };
 		F22E8195266B22E500113D9B /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8194266B22E500113D9B /* ScoreView.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,7 +21,6 @@
 		F22E8185266B1A8000113D9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F22E8188266B1A8000113D9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F22E818A266B1A8000113D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F22E8190266B1B4B00113D9B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F22E8194266B22E500113D9B /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +59,6 @@
 				F22E8185266B1A8000113D9B /* Assets.xcassets */,
 				F22E818A266B1A8000113D9B /* Info.plist */,
 				F22E8187266B1A8000113D9B /* Preview Content */,
-				F22E8190266B1B4B00113D9B /* Question.swift */,
 				F22E8194266B22E500113D9B /* ScoreView.swift */,
 			);
 			path = TampinesFakeKahoot;
@@ -144,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F22E8191266B1B4B00113D9B /* Question.swift in Sources */,
 				F22E8184266B1A7C00113D9B /* ContentView.swift in Sources */,
 				F22E8182266B1A7C00113D9B /* TampinesFakeKahootApp.swift in Sources */,
 				F22E8195266B22E500113D9B /* ScoreView.swift in Sources */,
