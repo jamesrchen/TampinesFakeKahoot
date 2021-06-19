@@ -9,10 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var colors = [Color.green, Color.red, Color.blue, Color.yellow]
+    // Constants
+    let colors = [Color.green, Color.red, Color.blue, Color.yellow, Color.purple, Color.orange]
+    let icons = [Image(systemName: "triangle.fill"), Image(systemName: "circle.fill"), Image(systemName: "diamond.fill"), Image(systemName: "square.fill"), Image(systemName: "hand.thumbsup.fill"), Image(systemName: "alarm.fill")]
     
+    // Not so constants I guess
     var questions = [
-        Question(title: "YJ", answers: ["Soon", "Now", "Later", "Never"], correctIndex: 0),
+        Question(title: "YJ", answers: ["Soon", "Now", "Later", "Never", "no", "yes"], correctIndex: 0),
         Question(title: "Swift?", answers: ["Yes", "No", "Java", "Eugene"], correctIndex: 3),
     ]
     
@@ -23,7 +26,7 @@ struct ContentView: View {
     
     @State var correctAnswers = 0
     @State var isModalPresented = false
-
+    
     var body: some View {
         
         ZStack {
@@ -36,14 +39,14 @@ struct ContentView: View {
                 ProgressView(value: Double(currentQuestion),
                              total: Double(questions.count))
                     .padding(.all)
-                    
+                
                 
                 Text(questions[currentQuestion].title)
                     .font(.system(size: 50))
                     .bold()
                     .padding()
                 
-                HStack {
+                VStack {
                     
                     let question = questions[currentQuestion]
                     let answers = question.answers
@@ -53,11 +56,12 @@ struct ContentView: View {
                         
                         let answerIndex = answersChunkedIndex * 2
                         
-                        VStack{
+                        HStack{
                             Button(action: {
                                 didTapOption(correct: answerIndex == question.correctIndex)
                             }, label: {
-                                Image(systemName: "square.and.pencil")
+                                icons[answerIndex]
+                                    .foregroundColor(Color.white)
                                 Text(answers[answerIndex])
                                     .foregroundColor(Color.white)
                             })
@@ -65,12 +69,12 @@ struct ContentView: View {
                             .frame(width: 170, height: 50)
                             .background(colors[answerIndex])
                             .clipShape(Rectangle())
-
-                        
+                            
                             Button(action: {
                                 didTapOption(correct: answerIndex+1 == question.correctIndex)
                             }, label: {
-                                Image(systemName: "square.and.pencil")
+                                icons[answerIndex+1]
+                                    .foregroundColor(Color.white)
                                 Text(answers[answerIndex+1])
                                     .foregroundColor(Color.white)
                             })
@@ -78,43 +82,45 @@ struct ContentView: View {
                             .frame(width: 170, height: 50)
                             .background(colors[answerIndex+1])
                             .clipShape(Rectangle())
-                            }
+
+                            
                         }
-                        
                     }
+                    
                 }
             }
-            .alert(isPresented: $isAlertPresented, content: {
-                Alert(title: Text(isCorrect ? "Correct" : "Gulag"),
-                      message: Text(isCorrect ? "Smart" : "Labour camps"),
-                      dismissButton: .default(Text("ok")){
-                        currentQuestion += 1
-                        if currentQuestion == questions.count {
-                            isModalPresented = true
-                            currentQuestion = 0
-                        }
-                      })
-            })
-            .sheet(isPresented: $isModalPresented,
-                onDismiss: {
-                    correctAnswers = 0
-                },
-                content: {
-                    ScoreView(score: correctAnswers,
-                              totalQuestions: questions.count)
-                }
-            )
         }
+        .alert(isPresented: $isAlertPresented, content: {
+            Alert(title: Text(isCorrect ? "Correct" : "Gulag"),
+                  message: Text(isCorrect ? "Smart" : "Labour camps"),
+                  dismissButton: .default(Text("ok")){
+                    currentQuestion += 1
+                    if currentQuestion == questions.count {
+                        isModalPresented = true
+                        currentQuestion = 0
+                    }
+                  })
+        })
+        .sheet(isPresented: $isModalPresented,
+               onDismiss: {
+                correctAnswers = 0
+               },
+               content: {
+                ScoreView(score: correctAnswers,
+                          totalQuestions: questions.count)
+               }
+        )
+    }
     
-        func didTapOption(correct: Bool) {
-            if correct {
-                isCorrect = true
-                correctAnswers += 1
-            } else {
-                isCorrect = false
-            }
-            isAlertPresented = true
+    func didTapOption(correct: Bool) {
+        if correct {
+            isCorrect = true
+            correctAnswers += 1
+        } else {
+            isCorrect = false
         }
+        isAlertPresented = true
+    }
 }
 
 extension Array {
